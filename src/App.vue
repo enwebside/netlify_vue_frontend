@@ -1,30 +1,27 @@
 <template>
   <div id="app">
-    {{ info }}
+    <PostComp/>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-
+import PostComp from '@/components/Postcomp';
 
 export default {
   name: 'app',
   components: {
-    
+    PostComp    
   },
   data () {
     return {
-      info: null
+   
     }
   },
   created() {
    
   },
   mounted () {
-    axios
-      .get('https://enwebsideapi.herokuapp.com/items/5c7e72810f1ef621725221aa')
-      .then(response => (this.info = response))
+    
   },
   methods: {
     
