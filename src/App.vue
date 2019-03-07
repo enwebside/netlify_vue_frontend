@@ -1,18 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ info }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios';
+
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    
+  },
+  data () {
+    return {
+      info: null
+    }
+  },
+  created() {
+   
+  },
+  mounted () {
+    axios
+      .get('https://enwebsideapi.herokuapp.com/items/5c7e72810f1ef621725221aa')
+      .then(response => (this.info = response))
+  },
+  methods: {
+    
+   
+    
   }
+  
 }
 </script>
 
