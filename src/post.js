@@ -20,26 +20,23 @@ class PostService {
 
         })
     }
-    static insertPost(name, email) {
+    static insertPost(name_a, email_a) {
        
-        return axios.post(url, {
-            name,
-            email 
+        axios.post(url, {
+            name: 'david',
+            parts: 'daf@sa.no'
         })
+        .then(response => { 
+            console.log(response)
+        })
+        .catch(error => {
+            console.log(error.response)
+        });
        
     }
-    static newPost(name, email) {
-        return new Promise( async (resolve, reject) => {
-            try {
-                const res = await axios.post(url,{ name, email });
-                resolve(res.data);
-                
-            } catch(err) {
-                reject(err);
-            }
-        })
+    
 
-    }
+    
 }
 export default PostService;
 

@@ -4,7 +4,7 @@
         
         <input type="text" id="name" placeholder="name" v-model="name">
         <input type="text" id="email" placeholder="email" v-model="email">
-        <button v-on:click="addPostNew">Legg til </button>
+        <button v-on:click="makePost">Legg til </button>
         
         <hr>
         <p class="error" v-if="errors">{{ errors }} </p>
@@ -23,6 +23,7 @@
 
 <script>
 import PostService from '@/post';
+
 
 export default {
     
@@ -46,17 +47,27 @@ export default {
     },
     methods: {
         async makePost() {
-          await PostService.insertPost(this.name, this.email)
-          this.posts = await PostService.getPosts();
-        },
-        async addPostNew() {
-            try {
-                await PostService.newPost(this.name, this.email);
-                this.posts = await PostService.newPosts();
-            } catch(err) {
-                this.errors = err.message;
-            }
+          await PostService.insertPost(this.name, this.email);
+          
+          //this.posts = await PostService.getPosts();
         }
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
     }
 };
 </script>

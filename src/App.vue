@@ -7,7 +7,7 @@
 <script>
 import PostComp from '@/components/Postcomp';
 
-export default {
+export default { 
   name: 'app',
   components: {
     PostComp    
